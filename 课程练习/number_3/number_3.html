@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+//JavaScript中的每个对象都有prototype属性
+//该属性返回对象类型原型的引用
+//具体在看
+
+//Number原型方法(Number对象继承的方法）
+// Number.prototype.toFixed(num); 可以把Number四舍五入为指定小数位数的数字
+// Number.prototype.toPrecision(num); 把数字格式化为指定的长度
+// Number.prototype.toString()；
+// Number.prototype.toExponential(num); 把值转换成指数计数法,小数点之前有一位数字，小数点之后有 num 位数字。该数字的小数部分将被舍入，必要时用 0 补足，以便它达到指定的长度。
+
+var num=new Number(3.1415926);
+console.log(num.toFixed(2));//3.14
+console.log(num.toPrecision(2));//3.1
+console.log(num.toString());
+console.log(num.toExponential(4));//3.1416e+0
+
+var num1=3.1415926;
+console.log(num1.toFixed(2));//3.14
+console.log(num1.toPrecision(2));//3.1
+console.log(num1.toString());
+console.log(num1.toExponential(4));//3.1416e+0
+</script>
+</html>
