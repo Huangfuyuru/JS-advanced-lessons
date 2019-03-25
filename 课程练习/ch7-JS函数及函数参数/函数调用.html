@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //作为函数直接调用
+    //在非严格模式下this是全局对象window,在严格模式下是undefined
+    function test1(){
+        console.log('this is',this);
+    }
+    test1();//Window
+
+    //作为对象方法调用
+    //this指向当前对象
+    var obj={
+        name:'张三',
+        age:23,
+        test:function(){
+            console.log(this.age,this);
+        }
+    };
+    obj.test();
+    //
+    var x=45;
+    var test=function(){
+        console.log('输出',this.x);
+    }
+    var obj={
+        x:23
+    };
+    obj.test=test;
+    obj.test();//23
+    test();//45 全局
+
+    //函数嵌套函数，里面的函数this指向全局对象
+    var x = 45;
+    var obj = {
+        x:23,
+        test:function(){
+            function foo(){
+                console.log(this.x);
+            }
+            foo();
+        }
+    };
+    obj.test();
+
+</script>
+</html>

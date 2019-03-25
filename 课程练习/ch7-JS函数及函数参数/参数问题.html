@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=00, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+//实参数量大于形参(通过函数对象arguments获的)
+//形参数量大于实参(少的参数定义为undefined,可使用||给出默认值)
+var sum=function(a,b,c){
+    b=b||4;
+    c=c||5;
+    return a+b+c;
+}
+console.log(sum(1,2,3));
+console.log(sum(1,2));
+console.log(sum(1));
+
+</script>
+</html>
