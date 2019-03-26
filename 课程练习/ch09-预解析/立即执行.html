@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+ if(true){
+     var z=23;
+ }
+ console.log(z);//还是会输出23，因为z不是在一个函数中定义的
+
+ if(true){
+     (function(){
+         var x=23;
+     })();
+ }
+ console.log(x);//会报错
+ //匿名函数立即执行，在匿名函数中定义的变量，外面获取不到
+</script>
+</html>

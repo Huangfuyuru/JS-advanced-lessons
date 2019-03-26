@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //变量的作用域是指变量在何处可以被访问到
+    //JS采用的是静态词法作用域，代码完成后作用域链就已经形成，与代码的执行顺序无关
+
+    //全局变量：
+    //拥有全局作用域的变量（JS代码中任何地方都可以访问）
+    //全局变量是跨域了所有函数自身作用域的自由变量，可以在函数内和函数外直接访问到
+    //局部变量：
+    //函数内声明的变量，只在函数体内定义，作用域是局部的
+    //在函数外不能直接访问函数的局部变量
+    //函数内访问同名变量时，局部变量会覆盖全局变量
+
+    //ES5无块作用域，可以使用函数立即执行表达式来模拟作用域
+
+    var name="jack";
+    function echo(){
+        console.log(name);
+    }
+    function foo(){
+        var name="bill";
+        echo();
+    }
+    foo();
+    //结果是 jack 
+    //虽然是foo()调用了echo()，但是echo()中的name是全局变量的name,
+    //而不是foo()中的局部变量name
+
+    //局部变量和全局变量
+    var x="outside f1";
+    var f1=function(){
+        var x="inside f1";
+        console.log(x);
+    }
+    f1();
+    console.log(x);
+    //在函数内定义的变量，因为函数是一个局部作用域
+    //当这个变量和全局变量重名时，在函数内部调用这个变量，是在函数内定义的该变量的值
+    //当在函数外调用该变量时，调用的会是全局变量
+
+    //若在函数内未加var 则相当于创建了全局变量
+
+    
+</script>
+</html>

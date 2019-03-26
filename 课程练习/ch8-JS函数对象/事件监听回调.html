@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="demo">
+
+    </div>
+</body>
+<script>
+    //这里的addEventListener是一个函数，他给click又绑定了一个函数
+    //addEventListener:监听DOM元素的事件
+    // target:监听对象
+    // type:监听类型 如click mouseover 
+    // func:监听函数
+    function addEventHandler(target,type,func){
+        if(target.addEventListener){
+            target.addEventListener(type,func,false);
+        }else if(target.attachEvent){
+            target.attachEvent('on'+type,func);
+        }else{
+            target['on'+type]=func;
+        }
+    }
+document.addEventListener("click",function(){
+        document.getElementById("demo").innerHTML="HE";
+});
+</script>
+</html>

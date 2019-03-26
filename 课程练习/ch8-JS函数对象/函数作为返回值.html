@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var x=12;
+    var obj={
+        x:34,
+        fun2:function(){
+            console.log(this.x,this);
+        }
+    };
+    var fun1=function(){
+        var f=function fun2(){
+            return this.x;
+        }
+        return f;
+    };
+    obj.fun3 = fun1;
+    obj.fun4 = fun1();
+    console.log("输出：",obj.fun3());//输出fun2这个函数
+    console.log("输出：",obj.fun3()());//输出12
+    console.log("输出：",obj.fun4());//输出34
+</script>
+</html>

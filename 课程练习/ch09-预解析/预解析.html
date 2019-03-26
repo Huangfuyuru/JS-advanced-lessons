@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // 预解析主要工作
+    // 解析器在执行代码前进行代码扫描（var function）声明的变量和函数
+    // 将他们的声明在当前作用域（全局、函数）内进行提升
+    console.log(a,b);//undefined undefined
+    var b=23;
+    console.log(a,b);//undefined 23
+    var a=b;
+    console.log(a,b);//23 23
+    //相当于
+    var b;
+    var a;
+    console.log(a,b);
+    b=23;
+    console.log(a,b);
+    a=b;
+    console.log(a,b);
+
+    //函数提升
+    foo();
+    function foo(){
+        console.log("f_1");
+    }
+    function foo(){
+        console.log("f_2");
+    }
+    //相当于
+    function foo(){
+        console.log("f_1");
+    }
+    function foo(){
+        console.log("f_2");
+    }
+    foo();
+    //把foo函数先提升了上去，第二次定义的函数把第一次给覆盖
+
+    //同时有var function定义的函数（情形一）
+    foo();
+    var foo = function(){
+        console.log("foo");
+    };
+    //相当于
+    var foo;
+    foo();//会报错
+    foo=function(){
+        console.log("foo");
+    };
+
+    //同时有var function定义的函数（情形二：变量和函数重名）
+    AA();
+    function AA(){
+        console.log("AA_1");
+    }
+    var AA = function AA(){
+        console.log("AA_2");
+    };
+    AA();
+    //相当于
+    function AA(){
+        console.log("AA_1");
+    }
+    var AA;
+    AA();
+    AA=function AA(){
+        console.log("AA_2");
+    };
+    AA();
+</script>
+</html>
