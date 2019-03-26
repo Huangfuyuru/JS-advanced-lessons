@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var a=10;
+    var b=20;
+    function fn(){
+        var a=100;
+        var b=200;
+        console.log(a);
+        function bar(){
+            var a=1000;
+            var b=2000;
+            console.log(a);
+        }
+        bar();
+    }
+    fn();
+    console.log(a);//当函数内声明a时不会被覆盖，但是直接用就会覆盖
+</script>
+</html>

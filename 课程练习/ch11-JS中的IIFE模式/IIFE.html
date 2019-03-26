@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="idd">
+
+    </div>
+</body>
+<script>
+    //IIFE 立即执行函数表达式（匿名函数立即执行）
+    //他可以建立函数作用域，解决变量污染、变量共享等问题
+    //下面是一个变量共享的例子  共享 i
+    function f(){
+    var getNumFuncs = [];//函数数组
+    for(var i=0;i<10;i++){
+        getNumFuncs[i] = function(){
+            return i;
+        };
+    }
+    return getNumFuncs;//设置断点，查看变量共享问题
+    }
+    var tmp = f();
+    tmp[3]();
+
+    //解决方案
+    function f(){
+    var getNumFuncs = [];//函数数组
+    for(var i=0;i<10;i++){
+        (function (j) {
+            getNumFuncs[j] = function(){return j;};
+        })(i);
+    }
+    return getNumFuncs;//设置断点，查看变量共享问题
+    }
+    var tmp = f();
+    console.log(tmp[3]());
+    console.log(tmp[4]());
+    
+    
+</script>
+</html>
