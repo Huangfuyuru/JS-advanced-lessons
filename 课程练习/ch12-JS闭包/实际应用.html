@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function fn(){
+        var a;
+        return function(){
+            return a||(a=document.body.appendChild(document.createElement('div')));
+        }
+    };
+    var f=fn();
+    f();
+
+    function closureExample(objID, text, timedelay) {
+    setInterval(function() {
+        //document.getElementById(objID).innerHTML = text;
+        console.log(objID,text);
+    }, timedelay);
+    }
+    closureExample("myDiv","Closure is Create", 2000);
+</script>
+</html>

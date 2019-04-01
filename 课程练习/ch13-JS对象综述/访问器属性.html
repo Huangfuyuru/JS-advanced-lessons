@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //访问器属性
+    var o={
+        _x:1,
+        get x(){
+            return this._x;
+        },
+        set (val){
+            this._x=val;
+        }
+    }
+    o._x=10;
+    console.log(o._x,o.x);
+
+
+    var p1={
+        _name:"Jack",
+        _age:23,
+        set age(val){
+            if(val>0&&val<150){
+                this._age=val;
+            }else{
+                console.log("请设置正常年龄");
+            }
+        },
+        get age(){
+            return this._age;
+        }
+    };
+    p1.age=178;
+    
+</script>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function fn1(){
+        var arr1=[];
+        for(var i=0;i<10;i++){
+            (function(x){
+                arr1[x]=function(){
+                    return x;
+                }
+            })(i);
+        }
+        return arr1;
+    }
+    var s=fn1();
+    s[2]();
+    //函数的作用域，在定义的时候就是确定
+    //函数内部的变量，有些时候需要等到函数执行来确定
+</script>
+</html>/
