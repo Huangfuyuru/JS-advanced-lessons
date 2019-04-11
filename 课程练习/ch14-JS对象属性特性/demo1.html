@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+var objProto = {
+    z:3
+};
+var obj = Object.create(objProto);
+obj.x = 1;
+obj.y = 2;
+console.log(obj.x); //1
+console.log(obj.y); //2
+console.log(obj.z); //3
+console.log(obj.toString);//原型链上有toString
+for(var k in obj){ //可以通过for...in遍历所有属性
+    console.log(k,obj[k]);//是否能遍历到toString？
+}
+
+
+var obj1={x:1};
+Object.defineProperty(obj1,"y",{
+    value:2,
+    enumerable:false
+});
+console.log(obj1);
+
+//遍历的时候没有 y 
+//因为enumerable是false 如果是true则可以遍历出来
+for(var k in obj1){
+    console.log(k,obj[k]);
+}
+</script>
+</html>

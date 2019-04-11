@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //对象的访问器属性
+    var obj={
+        _username:'jack',//_ 表示希望通过访问器属性来访问
+    }
+    Object.defineProperty(obj,'username',{
+        configurable:true,
+        enumerable:true,
+        get(){
+            return this._username;
+        },
+        set(val){
+            this._username=val;//如何用set来改变值
+        }
+    });
+    console.log(obj._username);
+
+
+    //获取属性的配置
+    var obj1={x:1};
+    Object.defineProperty(obj1,'y',{
+        enumerable:true,
+        configurable:true,
+        writable:true,
+        value:2
+    });
+    Object.getOwnPropertyDescriptor(obj1,'y');
+</script>
+</html>

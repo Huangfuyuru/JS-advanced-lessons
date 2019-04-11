@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var p1={
+        _name:'jack',
+        _age:23,
+        set name(value){
+            this._name='new'+value;
+        },
+        get name(){
+            return this._name;
+        }
+    };
+    console.log(p1._name);
+    p1._name='mike';
+    console.log(p1._name);
+    console.log(p1.name);
+    p1.name='mike1';
+    console.log(p1._name);
+    console.log(p1.name);
+
+    var o={
+        _x:1,
+        get x(){
+            return this._x;
+        }
+    };
+    console.log(o._x,o.x);
+    o._x=2;
+    console.log(o._x,o.x);//2 2
+    o.x=3;
+    console.log(o._x,o.x);//2 2
+    
+
+    var p2={
+        _name:"jacg",
+        _age:20,
+        set age(value){
+            if(value>0 && value <150){
+                this._age='lin'+value;
+            }else{
+                console.log('设置错误');
+            }
+        },
+        get age(){
+            return '年'+this._age;
+        }
+    }
+    console.log(p2._age,p2.age);
+    p2._age=20;
+    console.log(p2._age,p2.age);
+    p2._age=30;
+    console.log(p2._age,p2.age);
+    p2.age=20;
+    console.log(p2._age,p2.age);
+    p2.age=159;
+    console.log(p2._age,p2.age);
+    p2._age=159;
+    console.log(p2._age,p2.age);
+</script>
+</html>

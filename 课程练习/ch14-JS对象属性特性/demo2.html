@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+
+    var person={
+        username:"jack"
+    };
+    Object.defineProperty(person,"username",{
+        //是否可枚举  for in 能否遍历到
+        enumerable:true,
+        //是否可配置  能否delete删除该属性
+        configurable:false,
+        //能否可修改  属性是否可以写
+        writable:false,
+        value:'mike'
+    });
+    person.username="li";
+    delete person.username;
+    console.log(person.username);
+
+
+
+</script>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //创建对象
+    //11111111通过字面量创建他
+    var obj={
+        num:10,
+        str:'Hi',
+        show:function(){
+            return this.str;
+        }
+    }
+    console.log(obj.__proto__);//obj的原型是Object
+    console.log(Object.prototype);
+    console.log(obj.__proto__==Object.prototype);
+
+    //2222222通过Object工程方法建他
+    var newObj=Object.create(obj);//newObj的原型是obj
+    newObj.age=23;
+    console.log(newObj.age);
+    console.log(newObj.num);//她会先在自己的上面找，没有的话就去原型链上找
+    console.log(newObj.show());
+    console.log(newObj.__proto__);
+    console.log(obj);
+    console.log(newObj.__proto__==obj);
+
+    //构造函数的方式建他
+    function Person(name,age){
+        this.name=name;
+        this.age=age;
+    }
+    console.log(Person);
+    Person.prototype.sayName=function(){//直接把这个函数加入到了原型链中
+        console.log('你好 '+this.name,this.age);
+    }
+    console.log(Person.prototype);
+    var person1=new Person('MIKE',21);
+    person1.sayName();
+    //注意
+    var objStr=new Object('xxx');
+    console.log(objStr);//这是一个字符串
+
+    var objNum = new Object(23);
+    console.log(objNum);//这是一个数字
+</script>
+</html>

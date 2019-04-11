@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var person={
+        _name:'abc',//这里的_name有一个下划线
+    };
+    Object.defineProperty(person,'name',{
+        //注意第二个参数name没有下划线，所以name和_name是两个不同的属性
+        set:function(value){
+            this._name='new name'+name;
+        },
+        get:function(){
+            return 'this is name get by function'+this._name;
+            //注意这里返回字符串加上_name的值
+        }
+    });
+    //到这里，person有两个属性 name(访问器属性) _name
+    
+    //直接获取_name属性
+    console.log(person._name)//abc
+
+    //通过name属性间接获取_name的值，因为会执行name属性的getter访问器属性方法
+    console.log(person.name)//new name abc
+
+    //直接修改_name值
+    person._name="xyz";
+    console.log(person._name);//xyz
+
+    //修改name属性，但是name属性的setter访问器属性，会作用到_name属性上
+    person.name='wtf'
+    console.log(person._name);//new name wtf
+    console.log(person.name);//this is ..wtf
+</script>
+</html>
