@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var obj={
+        num:10,
+        str:"Hi",
+        show:function(){
+            console.log(this.str);
+        }
+    }
+    //Object.create(obj)
+    //创建一个新对象，并且将obj对象作为新对象的__proto__
+    var subObj=Object.create(obj);
+    console.log(subObj.__proto__==obj);
+    console.log(subObj);
+    console.log(subObj.num);
+
+
+    function Person(age,name){
+        this.age=age;
+        this.name=name;
+        // this.sayHi=function(){
+        //     console.log(this.name);
+        // }
+    }
+
+    //person1.__proto__.sayHi==Person.prototype
+
+    //这样做是大家可以共用一个sayHi方法，而不用在每个对象都创建一个方法
+    Person.prototype.sayHi=function(){
+        console.log(this.name);
+    }
+    var person1=new Person(18,'zhangsan');
+    var person2=new Person(18,'李四');
+    person1.sayHi();
+
+    var obj2={x:1,y:4};
+    var z="age";
+    // obj2.z=20;
+    //[ ]可以直接提出来属性值，而不是属性名
+    obj2[z]=20;
+    console.log(obj2.age);
+    delete obj2.x;//删除属性
+    for(var i in obj2){
+        console.log(i,obj2[i]);
+    }
+
+    for(var i in obj2){
+        console.log(i,obj2.i);
+    }
+</script>
+</html>
