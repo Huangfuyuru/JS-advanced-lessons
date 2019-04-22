@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function Person(username,age){
+        this.username=username;
+        this.age=age;
+    }
+    Person.prototype.sayHello=function(){
+        console.log("hello");
+    }
+    var person=new Person("zs",20);
+    console.log(person.__proto__=Person.prototype);
+    console.log(person.__proto__.__proto__);
+    console.log(person.__proto__.__proto__.__proto__);
+    
+    console.log(Person.prototype.constructor==Person);//true
+    console.log(Person.prototype.constructor==Object);//false
+</script>
+</html>

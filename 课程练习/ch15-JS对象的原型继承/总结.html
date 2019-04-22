@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+
+     <script>
+        /*
+            1.防止变量的污染
+            2.防止变量的非期望共享
+        */
+
+
+        for(var i=0;i<5;i++){
+            /*
+                1.事件的绑定的回调函数里面
+                2.定时执行、延迟执行
+            */
+            (
+                function(j){
+                    console.log(j);
+                }
+            )(i)
+        }
+        /*闭包*/
+        /*
+            1.可以访问函数内部的局部变量
+            2.可以让变量保存在内存中
+        */
+        function fn1(){
+            var x=1;
+            function fn2(){
+                return ++x;
+            }
+            return fn2;
+        }
+        var result=fn1();
+        console.log(reuslt());
+        console.log(result());
+    </script>
+
+</html>

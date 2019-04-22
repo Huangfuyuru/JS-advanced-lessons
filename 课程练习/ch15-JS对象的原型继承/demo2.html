@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var proObj={
+        z:3
+    };
+    var obj=Object.create(proObj);
+    obj.x=1;
+    obj.y=2;
+    console.log(obj.x);
+    console.log(obj.y);
+    console.log(obj.z);
+    //查看z属性是否是obj的自身属性
+    console.log(obj.hasOwnProperty('z'));//false
+    //查看z属性是否是obj的自身属性或者是原型链上的属性
+    console.log('z' in obj);//true
+
+    var num=10;
+    //num.toString();
+    console.log(num.__proto__.toString);
+</script>
+</html>

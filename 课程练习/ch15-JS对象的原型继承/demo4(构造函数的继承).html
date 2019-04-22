@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function Person(username,age){
+        this.username=username;
+        this.age=age;
+        // this.sayHello=function(){
+        //     console.log("hello hello");
+        // }
+    }
+    //这样会节省运行
+    Object.prototype.sayHello=function(){
+        console.log("hello hello");
+    }
+    var person=new Person('zhangsan',20);
+    var person2=new Person('lisi',25);
+    console.log(person.__proto__==Person.prototype);//true
+    //实例化得到的person的__proto 和构造函数的prototype
+    console.log(person,person2);
+</script>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+        var obj={x:1};
+        for(var i in obj){
+            console.log(obj[i]);
+        }
+        Object.defineProperty(obj,"y",{
+            value:2,
+            writable:true,
+            enumerable:true,
+            configurable:true
+        });
+        Object.getOwnPropertyDescriptor
+    
+
+
+        /*直接定义在Objects上的静态方法
+            Object.create()
+            Object.defineProperty();
+            Object.defineProperties();
+            Object.assign();
+            Object.getOwnPropertyDescriptor();
+
+            定义在Object.prototype上的
+
+        */
+    </script>
+</html>
