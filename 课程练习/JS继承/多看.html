@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+
+    function Foo(){};
+    var f1=new Foo();
+    /*
+    __proto__ constructor是对象独有
+    prototype 是函数独有
+    但是由于JS中函数也是一种对象，所以函数有拥有__proto和constructor
+
+    现在理解__proto__的作用
+    (f1.__proto__ f1这个对象的原型对象)
+    当访问一个对象的属性时，如果该对象内部不存在这个属性，那么就会去他的
+    __proto__属性所指向的那个对象里去找，如果还不存在，则继续往父对象的
+    __proto__属性所指向的那个对象里找，直到原型链的顶端null,如果还没找到，
+    则返回undefined
+
+    理解prototype Foo.prototype
+    他是从一个函数指向一个对象，他的含义是函数的原型对象，也就是这个函数
+    所创建的实例的原型对象（原型对象哦）f1.__proto__==Foo.prototype
+    (Foo.prototype 用Foo这个构造函数得到的实例对象的原型对象)
+    作用：包含可以由特定类型的所有实例共享的属性和方法，也就是让函数所
+    实例化的对象们都可以找到公用的属性和方法
+
+    */
+
+    /*
+    Object这里是对象,Function是函数
+    Object是用Function创建的，所以用Function这个构造函数得到的Object
+    的原型对象和Object自己的原型对象相等
+    */
+    console.log(Object.__proto__==Function.prototype)
+    
+    console.log(Foo.__proto__==Function.prototype);
+
+    /*
+    这个要好好理解一下
+    Function.prototype这里我们可以把他看成一个整体，他是一个原型对象，
+    先叫他 S,S的原型对象(S.__proto__)和谁相等呢？
+    这里我们又把Object看成了一个函数，Object.prototype(用Object这个函数
+    实例化等到的对象是S,我们已经知道了S是一个对象，在JS中任何对象都是用Object
+    新建得到的)
+    */
+    console.log(Function.prototype.__proto__==Object.prototype);
+    console.log(Foo.prototype.__proto__==Object.prototype);
+
+    console.log(f1.__proto__==Foo.prototype);
+
+    /*
+        constructor
+        只有对象才拥有，他是从一个对象指向一个函数，含义是指向该对象的构造函数
+        函数.prototype.constructor==函数本身
+    */
+</script>
+</html>
