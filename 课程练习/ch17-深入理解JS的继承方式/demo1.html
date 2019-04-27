@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //改了一个都会发生改变，
+    var superObj={
+        x:1,
+        y:2
+    };
+    var superObj_First=Object.create(superObj);
+    var superObj_Second=Object.create(superObj);
+
+    superObj_First.__proto__.x=5;//实际上改变的是superObj上的x
+    console.log(superObj_Second.x);//superObj_Second上没有x，只能在他的原型链上查找
+
+    
+    //
+    var superObj={
+        x:1,
+        y:2
+    };
+    var superObj_First=Object.create(superObj);
+    var superObj_Second=Object.create(superObj);
+
+    superObj_First.x=5;//给superObj_First添加了一个x
+    console.log(superObj_Second.x);
+
+    
+</script>
+</html>

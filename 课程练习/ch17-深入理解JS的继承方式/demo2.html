@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function Person(name){
+        this.name=name;
+    };
+    Person.prototype.age=22;
+    Person.prototype.showName=function(){
+        console.log(this.name);
+    };
+    function Student(id){
+        this.id=id;
+    };
+
+    //这样就固定了实例化出的Student对象的name,age
+    //给Student.prototype上添加
+    var person=new Person("MIke");
+    Student.prototype=person;
+    var s1=new Student(2017001);
+    var s2=new Student(2017002);
+
+    console.log(s1.name,s1.age,s1.id);
+    console.log(s2.name,s2.age,s2.id);
+    /*
+        s1.name
+        s1.__proto__=Student.prototype
+        Student.prototype==person;
+        person由实例化Person得到,姓名是Mike
+
+        s1.age
+        s1.__proto__=Student.prototype
+        Student.prototype=person
+        person.__proto__==Person.prototype
+
+    */
+    
+</script>
+</html>

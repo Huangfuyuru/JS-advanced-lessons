@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+//一个是数据会共享，一个是数据会写死
+//所以用“类继承”形式
+
+//实例Person
+function Person(name,age){
+    this.name=name;
+    this.age=age;
+};
+//给Person的prototype添加一个showName方法
+Person.prototype.showName=function(){
+    return this.name;
+
+};
+//实例Student
+function Student(name,age,id){
+    Person.call(this,name,age);//把Person当做一个普通的函数来调用，用Person构造函数来给对象添加name,age
+    this.id=id;
+};
+//下面这句很重要
+Student.prototype.__proto__=Person.prototype;
+var s1=new Student("xxx",22,2017001);
+var s2=new Student("xxx",23,2017002);
+
+console.log(s1.name,s1.age,s1.id);
+console.log(s1.showName());
+console.log(s2.name,s2.age,s2.id);
+</script>
+</html>
