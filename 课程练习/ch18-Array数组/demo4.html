@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /*arr.forEach(callback,thisArg)
+      callback是针对数组的每个数组元素所应用的回调函数
+        value 表示数组元素的元素值
+        index 表示数组元素的索引值
+        arr   表示被操作的数组
+      thisArg 回调函数内部的this指向
+        
+    */
+    var arr1=["a","b","c"];
+    var obj1={x:"d"};
+    //value是当前的数组的一个值，index是当前的索引，arr是当前的数组
+    arr1.forEach(function(value,index,arr){
+        console.log(value,index,arr);
+        this[value]=value;//把a,b,c的值添加到来看this(obj1)上，把a,b,c当做属性名字
+        //this.value=value  把value当做了属性名字
+    },obj1);
+    console.log(obj1)
+
+
+
+
+    /*
+        every()方法测试数组的所有元素是否都通过了指定函数的测试
+        如果有返回值为false,则result为false,如果均为true则result为true
+
+    */
+    var arr1=[18,20,30,40];
+    var result=arr1.every(function(value){
+        return value>10;
+    });
+    console.log(result);
+
+    /*
+        some()方法测试数组的所有元素都通过不了指定函数的测试，返回false
+        只要有一个通过就返回trues
+
+
+    */
+    var arr1=[18,20,30,40];
+    var result=arr1.some(function(value){
+        return value>10;
+    });
+    console.log(result);
+</script>
+</html>

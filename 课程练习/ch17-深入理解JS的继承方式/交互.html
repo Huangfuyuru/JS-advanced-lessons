@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" name="username" id="username">
+</body>
+    <script>
+        (function(w,d){
+            function InputIdentify(inputId){
+                this._init(inputId);
+                this._effect();
+            }
+
+            InputIdentify.prototype._init=function(inputId){
+                var inputObject=d.getElementById(inputId);
+                //在这个新建的对象中添加一个inputObject属性
+                this.inputObject=inputObject;
+            }
+
+            InputIdentify.prototype._effect=function(){
+                //所以我们可以使用this.inputObject来调用这个属性
+                this.inputObject.onblur=function(){
+                    console.log("文本框失去焦点");
+                };
+                this.inputObject.onfocus=function(){
+                    console.log("文本框获得焦点");
+                }
+            }
+            //这句很重要
+            //实现局部函数和外界沟通,w是全局变量，将InputIdentify添加到了w上
+            //所以在局部函数外可以使用InputIdentift来创建新的对象
+            w.InputIdentify=InputIdentify;
+        })(window,document);
+        
+        var input1=new InputIdentify("username");
+        console.log(window);
+    </script>
+</html>

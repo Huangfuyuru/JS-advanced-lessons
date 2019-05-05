@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    /*
+        内置对象方法
+        1 确定使用的方法是数组静态方法、还是数组原型方法
+        2 查看ＭＤＮ该方法相关定义、使用
+        3 查看该方法的相关参数
+            (1)如果包含了回调函数，还需要回调函数的相关参数
+            (2)那些参数时必须的，那些参数时可选的
+        4 该方法执行得到的返回结果
+
+
+        Array.prototype.reverse()
+        数组原型方法
+        将数组中元素的位置颠倒，该方法会改变数组
+        没有参数
+        返回颠倒后的数组，该方法会改变数组
+
+    */
+
+    /*
+        数组静态方法
+        Array.from() //插一句 凡是包含length属性的就是类数组
+        Array.isArray()
+        Array.of()
+    */
+    /*
+        数组原型方法
+        Array.prototype.shift()
+        Array.prototype.pop()
+        Array.prototype.splice()
+        Array.prototype.unshift()
+        Array.prototype.push()
+    */
+    var arr=[1,2,3,4,5];
+    console.log(arr.reverse());
+
+    var arr1=[2,3,52,4,7];
+    arr1.sort(function(a,b){
+        return a-b;
+    });
+    console.log(arr1);
+    </script>
+</body>
+</html>

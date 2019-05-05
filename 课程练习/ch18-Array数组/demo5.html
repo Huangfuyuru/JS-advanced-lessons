@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /*
+    map()方法创建一个新数组，其结果是该数组中的每个元素都调用一个提供的函数
+    后返回的结果
+    */
+    var arr1=[1,2,3,4];
+    var result2=arr1.map(function(value){
+        return value*2;
+    });
+    console.log(result2);
+
+
+    /*
+    filter()方法创建一个新数组，其包含通过所提供函数实现的测试的所有元素
+    */
+    var words = ['spray', 'limit', 'elite', 'exuberant', 'destruction', 'present'];
+    var result3=words.filter(function(value){
+        return value.length>6;
+    });
+    console.log(result3);
+</script>
+</html>

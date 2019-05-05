@@ -11,7 +11,28 @@
 </body>
 <script>
     //直接定义在构造函数上的是静态方法
-    //定义在构造函数是prototype上的是动态方法
+    //定义在构造函数的prototype上的是动态方法
+
+    function BaseClass(){
+
+    }
+    BaseClass.f1=function(){
+        console.log('静态方法f1');
+    }
+    BaseClass.prototype.f2=function(){
+        console.log('动态方法(原型方法)f2');
+    }
+    //静态方法只能以类的形式调用
+    BaseClass.f1();
+    //动态方法可以新建一个对象来调用
+    var base=new BaseClass();
+    base.f2();
+
+    /*
+        Object上的静态方法
+        Object.create()
+        Object.defineProperty()
+    */
 
     
 </script>

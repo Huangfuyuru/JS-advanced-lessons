@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /*
+        将arr1赋值给arr2
+        当arr1中的元素改变，arr2也会改变
+        因为arr1,arr2是引用类型，指向相同
+    */
+    var arr1=[1,2,3,4];
+    var arr2=arr1;
+    arr1[0]=5;
+    console.log(arr2);
+
+    /*
+        稀疏数组
+    */
+   var arr1=[,2,3,,4,5,,,6];
+   console.log(arr1.length);
+   Array.prototype.min="扩展属性";
+   for(var i=0;i<arr1.length;i++){
+       console.log(arr1[i]);
+   }
+   //下面这种形式一般不用遍历数组
+   //因为会遍历出其他属性
+   //而且只会输出不是空的值，空的是不输出
+   for(var i in arr1){
+       console.log(i,arr1[i]);
+   }
+
+</script>
+
+</html>
