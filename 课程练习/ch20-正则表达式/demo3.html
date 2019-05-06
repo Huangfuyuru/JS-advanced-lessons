@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //特殊字符二
+    /*
+        字符的集合[xyz]
+            可以使用-来指定一个字符的范围
+            [abcd]和[a-d]是相同的
+        反向字符的集合[^xyz]
+            匹配任何没有包含在方括号中的字符
+    */
+    var reg1=/[abc]\d/gi;
+    var str1="a1b2c3dfidifs";
+    str1.replace(reg1,"x");
+
+    var reg2=/[^0-9][^a-j]/gi;
+    var str2="s5gh2d5e2d2g5egwhk5";
+    str2.replace(reg2,"*");
+    
+
+    /*
+        匹配开头字符是数字，第二个字符是a-f
+        第三个字符是空格
+    */
+    var reg=/\d[a-f]\s/gi;
+    var str="1e  duluduludu";
+    console.log(str.replace(reg,"jisoo"));
+
+    /*
+        ^ 定义以什么开头
+    */
+    var reg=/^a[2-5]/gi;
+    var str="a2kkka2";
+    console.log(str.replace(reg,"xixi"));
+
+    /*
+        $ 定义以什么结尾
+    */
+
+    /*
+        \b 匹配一个词的边界。一个词的边界就是一个词不被另外一个“字”字符
+        跟随的位置或者没有其他“字”字符在其前面的位置。
+        注意一个词的边界并不包含在匹配内容中。换句话说，一个匹配的词的边界的内容
+        的长度是0
+    */
+    var rep=/\bm/gi;//匹配开头边界是m
+    var str="moon";
+    var str1="mxixixixi"
+    console.log(str.replace(rep,"你好"));
+    console.log(str1.replace(rep,"你好"));
+
+    var rep=/oon\b/gi;//匹配结尾是oon
+    var str="moon";
+    console.log(str.replace(rep,"x"));
+</script>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //通过构造函数创建Date对象的4中形式
+    /*第一种
+        new Date(年份，月份，日，时，分，秒，毫秒)；
+    */
+    var date1=new Date("2019","04","05");
+    console.log(date1);
+    /*第二种
+        new Date(时间格式的字符串)
+    */
+    var date2=new Date("2019-05-05");
+    console.log(date2);
+
+    /*
+        时间分类
+            当地时间
+            世界标准时间
+    
+    */
+
+    /*Date.parse()方法解析一个表示某个日期的字符串，并返回从1970-1-1 0 0 0
+    到该日期对象的毫秒数
+    */
+    var millionSeconds=Date.parse("2019-05-05");
+    console.log(millionSeconds);
+    
+</script>
+</html>

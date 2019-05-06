@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //特殊字符一
+    /*
+        字符分类：
+        元字符，没有任何修饰符，普通字符
+    */
+    var reg1=/ab/gi;
+    var str1="abcdefg";
+    //替换str1中符合正则表达式的相关字符串
+    str1.replace(reg1,"x");
+
+    /*
+        字符分类：
+        \d:匹配阿拉伯数字
+        \B:匹配一个非阿拉伯数字
+    */
+    var reg1=/a\d/gi;
+    var reg2=/a\D/gi;
+    var str1="a1bcdddadga2";
+    console.log(str1.replace(reg1,"s"));
+    console.log(str1.replace(reg2,"s"));
+
+
+    /*
+        字符分类：
+        \w:匹配一个单字字符(字母、数字、或者下划线)
+        \W:匹配一个非单字字符
+    */
+   var reg3=/a\w/gi;
+   var reg4=/a\W/gi;
+   var str1="ada1a%sfgf";
+   console.log(str1.replace(reg3,"m"));
+   console.log(str1.replace(reg4,"m"));
+
+   /*
+        字符分类：
+        \s:匹配一个空白字符，包括空格、制表符、换页换行符
+        \S:匹配一个非空白字符
+   */
+    var reg1=/\sa\s\W/gi;
+    var str1="i love a %";
+    console.log(str1.replace(reg1," jisoo "));
+</script>
+</html>

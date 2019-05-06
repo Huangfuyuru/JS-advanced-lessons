@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //特殊字符三(量词)
+    /*
+        ? 出现0次或1次
+        + 出现1次或多次
+        * 出现0次或多次（任意次）
+        {n}出现n次
+        {n,m}出现n到m次
+        {n,}出现至少n次
+    */
+    var rep=/a?cc/gi;
+    var str="accmsacc";
+    console.log(str.replace(rep,"xx"));
+
+    var rep=/a+cc/gi;
+    var str="aaaaaaccmsacccc";
+    console.log(str.replace(rep,"xx"));
+
+    var rep=/a*cc/gi;
+    var str="aaaaaaccmsacccc";
+    console.log(str.replace(rep,"xx"));
+
+    var rep=/a{4}cc/gi;
+    var str="aaaaaaccmsaaaacccc";
+    console.log(str.replace(rep,"xx"));
+
+    var rep=/a{5,6}cc/gi;
+    var str="aaaaaaccmsaaaacccc";
+    console.log(str.replace(rep,"xx"));
+
+    var rep=/a{4,}cc/gi;
+    var str="aaaaaaccmsaaaacccc";
+    console.log(str.replace(rep,"xx"));
+</script>
+</html>

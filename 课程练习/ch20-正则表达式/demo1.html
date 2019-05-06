@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /*
+        match方法    检索返回一个字符串匹配正则表达式的结果
+        i标识符      忽略大小写
+        g标识符     是否全局检索
+    */
+   /* 方法一:
+    正则表达式的结构：
+            /正则表达式文本/标识符
+            []表示可以从[]中任取一个
+   */
+  
+    var reg1=/[bcf]at/gi;
+    var str1="bat cat fat Fat difijfi";
+    str1.match(reg1);
+
+
+    //方法二：
+    var reg2=new RegExp(/[bcf]at/,"gi");
+
+    //方法三
+    var reg3=new RegExp("[bcf]at","gi");
+</script>
+</html>
