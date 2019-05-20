@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <style>
+        img{
+            width:245px;
+            height: 245px;
+            margin:3px;
+        }
+    </style>
+</head>
+<body>
+   <img src="img/Lisa.jpg" id="img">
+   <img src="img/Lisa.jpg" >
+   <img src="img/Lisa.jpg" >
+   <img src="img/Lisa.jpg" >
+   <img src="img/Lisa.jpg" >
+</body>
+
+<script>
+    /*
+        jQuery事件
+
+    */
+    $("img").mouseover(function()
+    {
+        /*$(this)表示this*/
+        $(this).css("border","3px solid pink");
+    })
+    $("img").mouseout(function()
+    {
+        /*$(this)表示this*/
+        $(this).css("border","none");
+    })
+</script>
+</html>

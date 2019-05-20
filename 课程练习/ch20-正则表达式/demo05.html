@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /*
+        用()包裹的内容，称之为分组
+    */
+    var reg=/(ss\d)a/gi;
+    var str='ss1abcdefg';
+    /*exec():一个在字符串中执行查找匹配的RegExp方法，它返回一个数组（未匹配到则返回null）。
+        返回的数组结构[整个正则表达式匹配的内容，分组匹配到的内容]
+    */
+    reg.exec(str);
+
+    /*
+        \2只从第二个分组匹配
+    */
+    var reg=/(\dss)a\1/gi;
+    var reg1=/(\dss)a(\dsa)\2/gi;
+    var str="1sa1ssa1safdfdfdfdf";
+    console.log(str.replace(reg,"嘻嘻"));
+
+    var reg3=/(ab){3}/gi;
+    var str="ababababsss";
+    str.replace(reg3,"xx");
+
+
+    var reg=/(,\sorange)(,\scherry)\2/gi;
+    //等效于
+    var reg1=/(,\sorange)(,\scherry)(,\scherry)/gi;
+    var str="apple, orange, cherry, cherry, peach";
+    console.log(reg.test(str));
+</script>
+</html>

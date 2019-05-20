@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+</head>
+<body>
+    <table width="400" height="400" border="1" align="center">
+        <tr class="even">
+            <td id="td1"></td>
+            <td></td>
+            <td></td>
+            <td>1</td>
+        </tr>
+        <tr class="add">
+            <td>1</td>
+            <td>4</td>
+            <td>5</td>
+            <td></td>
+        </tr>
+        <tr class="even">
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr class="add">
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+            
+    </table>
+</body>
+
+<script>
+    /*
+        基本选择器
+        $("选择器") 称之为jquery包装集
+            基本选择器:
+                类选择器 $(".add").css("background","red")
+                标签选择器
+                id选择器
+        $("body").css("background","red");
+
+    */
+    $(".add").css("background","pink");
+    $(".even").css("background","black");
+    $("#td1").css("background","white");
+    /*
+        过滤选择器（部分）
+        :eq(index)index=index的元素
+        :gt(num)  index大于num的元素
+        :lt(num)  index小于num的元素
+        :not(selector) 所有不为空的元素
+            $("input:not(:empty)") 选中所有不为空的input元素
+    */
+
+    $("td:even").css("background","red");
+    $("td:odd").css("background","blue");
+    $("td:eq(4)").css("background","white");
+    $("td:lt(6)").css("border","1px solid black");
+    $("td:gt(6)").css("background","green");
+    $("td:lt(3)").css("background","purple");
+    $("td:not(:empty)").css("background","yellow");
+    $("td:not(#td1)").css("background","white");
+    /*选中标签td中id不为td1的所有元素*/
+
+
+</script>
+</html>

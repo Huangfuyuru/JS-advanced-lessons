@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /*
+        1.前后端的数据交互传输
+        2.作为数据存储的数据格式
+        
+    */
+    var jsObject={
+        username:"zhangsan",
+        "age":20,
+        sex:"男",
+        address:{
+            addName:"石家庄",
+            addCode:"11111",
+        }
+    };
+
+    //不会是一步转化为字符串，而是先经过function函数过滤，不要number值
+    //是以键值对的形式传入（key,value）
+    var jsonStr=JSON.stringify(jsObject,function(key,value){
+        if(typeof value=="number"){
+            return undefined;
+        }
+        return value;
+    });
+    console.log(jsonStr);
+
+    //[属性名，属性名，属性名]表示我只要这几个属性名的内容
+    var jsonStr1=JSON.stringify(jsObject,["username","age"])
+    console.log(jsonStr1);
+
+    //看遍历的方式
+    var jsObject=JSON.parse(jsonStr,function(key,value){
+        console.log(key,value);
+    })
+    console.log(jsObject);
+</script>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>用户名:</td>
+            <td>
+                <input type="text" name="username" id="username">
+            </td>
+        </tr>
+        <tr>
+            <td>密码:</td>
+            <td>
+                <input type="password" name="password" id="pwd">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="button" value="登录">
+            </td>
+        </tr>
+    </table>
+</body>
+<script>
+    /*
+    
+    jq基本是操作方法，js基本是操作属性
+    生成一个jQuery包装集  $(选择器)
+    
+    获取表单元素的value值 $(选择器).val()
+
+    $(选择器).append(包装集) 向前面选中的元素添加新节点
+
+    $(选择器).remove()  将选中的元素移出
+    */
+    $("#username").blur(function(){
+        /*新建一个节点*/
+        var $error=$("<span class='error'>用户名不能为空</span>");
+        /*获取方法*/
+        var inputVal=$(this).val();
+        if(inputVal==""){
+            $(this).parent().append($error);
+        }else{
+            $(".error").remove();
+        }
+    })
+
+    $("#pwd").blur(function(){
+        /*新建一个节点*/
+        var $error1=$("<span class='error1'>密码不能为空</span>");
+        /*获取方法*/
+        var inputVal1=$(this).val();
+        if(inputVal1==""){
+            $(this).parent().append($error1);
+        }else{
+            $(".error1").remove();
+        }
+    })
+</script>
+</html>

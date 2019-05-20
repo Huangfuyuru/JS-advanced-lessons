@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /*
+        String.prototype
+            var result=str.replace(正则表达式，替换成的内容);
+            返回值result是被替换后的字符串
+
+            var result=str.match(正则表达式);
+            返回值result是匹配到的数组
+            匹配失败返回的是null
+            
+            var result=str.search(正则表达式);
+            返回的是匹配位置的起始索引值
+
+        RegExp.prototype
+            reg.test(str) 验证字符串是否符合正则表达式规则
+            符合返回true,不符合返回false
+            
+            reg.exec(str) 匹配返回数组，不匹配返回null
+            [整个正则匹配表达式匹配到的内容，分组匹配到的内容]
+
+            属性
+            reg.global i...
+    */
+    var reg=/\daa\s(\de)/gi;
+    var str="aaa1aa 1ello";
+    console.log(str.match(reg));
+    console.log(str.search(reg));
+</script>
+</html>
