@@ -1,0 +1,98 @@
+/*   导航   */
+#index{
+    font-family: '华文行楷';
+    /* background: linear-gradient(to bottom left,#858DA6,#D6D9C5,#A6998A); */
+    color:white;
+    background: url(../img/oo.png);
+    border-bottom:2px solid wheat;
+   
+}
+#index .navbar-brand{
+    font-size: 25px;
+}
+#index ul{
+   font-size: 25px;
+}
+.navbar-default .navbar-brand{
+    color: wheat;
+}
+.navbar-default .navbar-nav>li>a{
+    color:white;
+}
+@media screen and (max-width:500px) {
+    #index.navbar-brand{
+        font-size: 25px;
+    }
+}
+@font-face{
+    font-family: WebFont;
+    src: url('../fonts/webfontkit-20190601-023707/hff_chinese_dragon-webfont.woff');
+    font-weight: normal;
+}
+.zixing p{
+    font-family:WebFont;
+    font-size: 25px;
+    display: inline-block;
+}
+
+/*  首页    */
+.carousel {
+    position: relative;
+    margin-top: 100px;
+    width: 100%;
+    height: 650px;
+    
+}
+.carousel-inner {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    height: 650px;
+}
+/*   入门解读  */
+
+.zixing h2{
+    display: inline-block;
+    font-weight: bold;
+    font-size: 30px;
+    color: #73c7ca;
+    margin-left: 20px;
+    letter-spacing:10px;
+}
+/*紫砂壶器型解读*/
+#bbs2{
+    background:url(../img2/img1.png);
+    height: 650px;
+}
+/*器型解读*/
+#bbs3{
+    height: 650px;
+    padding: 80px 0;
+}
+/*手工作坊*/
+#bss4{
+    height: 650px;
+    padding:80px 0;
+    background:url(../img/图片3.jpg) no-repeat;
+}
+#bss4 p{
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 30px;
+    margin-top: 15px;
+    color:whitesmoke;;
+    border: 1px solid wheat;
+}
+/*联系我们*/
+#bss5 .col-md-3{
+    border:1px solid saddlebrown;
+    height: 400px;
+    text-align: center;
+}
+#bss5 .thumbnail{
+    margin-top: 50px;
+}
+#bss5{
+    height: 650px;
+    padding: 80px 0;
+}
