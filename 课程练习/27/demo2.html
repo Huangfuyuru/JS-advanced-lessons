@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /*同步代码不会等异步代码
+      将var 换成 let 实现立即执行
+
+      let不能提升，在声明变量前，不能使用该变量
+    */
+    for(let i=0;i<3;i++){
+        setTimeout(function(){
+            console.log(new Date(),i)
+        },i*1000);
+    }
+</script>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /*  数组解构赋值  
+        1.进行两侧的模式匹配，然后完成对应位置上的变量赋值
+        2. ...(剩余运算符)将后面所有的元素匹配到tail中，以数组的形式
+    */
+    let[first,second,third]=["bar","foo","baz"];
+    console.log(third);
+
+    let[head,...tail]=["a","b","c","d"];
+    console.log(head,tail);
+
+    /*
+        对象结构赋值
+        左侧为键名，右侧需要写键值对，将键值赋值给左侧的键名
+        左侧为键值对，键只用于匹配，真正赋给的是对应的值，不能通过键名来获得值
+        需要通过值的名称
+    */
+   var {bar2,foo2}={foo2:"ccc",bar2:"ddd"};
+   console.log(bar2,foo2);
+
+   var {baz3}={foo3:"ccc",baz3:"ddd"};
+   console.log(baz3);
+
+   let{k1:v1,k2:v2}={k1:"aaa",k2:"bbb"};
+   console.log(v1,v2);
+
+   /* 字符串解构赋值
+       等号右侧不是对象时，会被转换为对象
+   */
+    let [a,b,c,d,e]="hello";
+    console.log(a,b,c,d,e);
+
+    // let string1=new String("hello");
+    // let [a,b,c,d,e]=string1;
+    // console.log(a,b);
+    /* 数字解构赋值
+        等号右侧不是对象时，会被转换为对象
+    */
+    let {toString:s}=123;
+    console.log(s);
+    console.log(s==Number.prototype.toString);
+    // let num=new Number(123);
+    // let {toString:s}=num;
+    // console.log(s);
+
+    /* 函数参数结构赋值
+        适用于函数参数较多，结构较为复杂的情况
+        形式一
+    */
+     function move1({x=0,y=0}={}){
+        return [x,y];
+     }
+     console.log(move1({x:2,y:4}));
+     console.log(move1({}));//[0,0]
+
+     /*形式二*/
+     function move2({x,y}={x:0,y:0}){
+         return [x,y]
+     }
+     console.log(move2({x:2,y:4}));
+     console.log(move2({}));//[undefined,undefined]
+     console.log(move2());
+
+     /*结构赋值应用
+        1.交换变量
+        2.从函数中返回多个值
+            函数只能返回一个值，如果要返回多个值，只能将他们放在数组或对象里
+            返回，但是有了解构赋值，取出这些值就很方便
+        3.提取JSON数据
+        4.通过解构赋值给函数传参并指定默认参数
+     */
+    var [x,y]=["a","b"];
+    [x,y]=[y,x];
+    console.log(x,y)//b,a
+
+    function example(){
+         return [1,2,3];
+    }
+    var [a1,b1,c1]=example();
+    console.log(a1,b1,c1);
+
+    var jsonData={id:42,status:"ok",data:[88,880]};
+    let {id,status,data:number}=jsonData;
+    console.log(id,status,number);
+
+    
+</script>
+</html>

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+    <head>
+        <title>
+            calculate
+        </title>
+        <meta http-equiv="Content-Type" content="text/html;charaset = utf-8" />
+        <style type="text/css">
+            body {
+                font:bolder 26px 楷体;
+            }
+            #result {
+                text-align:right;
+            }
+            table,td {
+                border:1px solid #C0C0C0;
+            }
+            td {
+                padding:10px;
+            }
+            button {
+                width:50px;
+                height:50px;
+            }
+            button:hover{
+                box-shadow: 3px 3px 3px #eee;
+            }
+        </style>
+         <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    </head>
+    
+    <body>
+        <table>
+            <tr>
+                <td colspan="3" id="result">
+                    0
+                </td>
+                <td>
+                    <button type="button" value="C">
+                        C
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button type="button" value="1" >
+                        1
+                    </button>
+                </td>
+                <td>
+                    <button type="button" value="2">
+                        2
+                    </button>
+                </td>
+                <td>
+                    <button type="button" value="3">
+                        3
+                    </button>
+                </td>
+                <td>
+                    <button type="button" value="+">
+                        +
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button type="button" value="4">
+                        4
+                    </button>
+                </td>
+                <td>
+                    <button type="button" value="5">
+                        5
+                    </button>
+                </td>
+                <td>
+                    <button type="button" value="6">
+                        6
+                    </button>
+                </td>
+                <td>
+                    <button type="button" value="-">
+                        -
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button type="button" value="7">
+                        7
+                    </button>
+                </td>
+                <td>
+                    <button type="button" value="8">
+                        8
+                    </button>
+                </td>
+                <td>
+                    <button type="button" value="9">
+                        9
+                    </button>
+                </td>
+                <td>
+                    <button type="button" value="*">
+                        *
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button type="button" value="0">
+                        0
+                    </button>
+                </td>
+                <td>
+                    <button type="button" value=".">
+                        .
+                    </button>
+                </td>
+                <td>
+                    <button type="button" value="=">
+                        =
+                    </button>
+                </td>
+                <td>
+                    <button type="button" value="/">
+                        /
+                    </button>
+                </td>
+            </tr>
+        </table>
+    </body>
+<script>
+    
+    var a="";
+    var b="";
+    var count=0;
+    for(var i=0;i<$("button").length;i++){
+        /*eq传入变量要前后加+ +*/
+        $("button:eq("+i+")").click(function(){
+            if($(this).val()!="C" && $(this).val()!="="){
+                a+=$(this).val();
+                if(a.charAt(0)=="*"||a.charAt(0)=="/"||a.charAt(0)=="+"||a.charAt(0)=="."){
+                    a='';
+                }
+                if(a.charAt(a.length-1)=="."){
+                    count+=1;
+                }
+                if(count>=2){
+                    a=a.slice(0,a.length-1);
+                    count=1;
+                }
+                if(a.charAt(a.length-1)=="*"||a.charAt(a.length-1)=="/"||a.charAt(a.length-1)=="-"||a.charAt(a.length-1)=="+"||a.charAt(a.length-1)=="."){
+                    if(a.charAt(a.length-2)=="*"||a.charAt(a.length-2)=="/"||a.charAt(a.length-2)=="-"||a.charAt(a.length-2)=="+"||a.charAt(a.length-2)=="."){
+                        a=a.slice(0,a.length-1);
+                    }
+                }
+                $("#result").html(a);
+            }
+            if($(this).val()=="C"){
+                a='';
+                $("#result").html(a);
+            }
+            if($(this).val()=="="){
+                if(a.charAt(a.length-1)=="*"||a.charAt(a.length-1)=="/"||a.charAt(a.length-1)=="-"||a.charAt(a.length-1)=="+"||a.charAt(a.length-1)=="."){
+                    a=a.slice(0,a.length-1);
+                }
+                a=eval(a);
+                a=Math.round(a* 100) / 100
+                $("#result").html(a);
+                
+            }
+        })
+        
+    }
+   
+</script>
+</html>

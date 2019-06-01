@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+</head>
+<body>
+    
+</body>
+<script>
+    /*
+        1.$.get向指定地址的后端程序发起get请求
+        2.后端程序接受到请求，响应了一个字符串
+        3.Ajex请求成功的回调函数可以接受后端程序响应的内容
+        4.将网页文件和后端程序文件放置到服务器软件上(wampserver)
+    */
+    $.get("./server.php",function(data){
+            console.log(data)
+    })
+</script>
+</html>

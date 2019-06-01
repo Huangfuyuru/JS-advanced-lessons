@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <div>
+            <div>
+                <a href="http://www.baidu.com" id="baidu">百度</a>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    /*
+    e.preventDefault()
+    阻止元素的默认操作
+    */
+    var baidu=document.getElementById("baidu");
+    baidu.addEventListener("click",function(e){
+        e.preventDefault();
+    })
+</script>
+</html>

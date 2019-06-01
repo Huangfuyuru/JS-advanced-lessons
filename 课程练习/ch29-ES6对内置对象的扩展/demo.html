@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /* 对String的扩展
+        1.对字符串的遍历接口(也可以遍历数组)
+        2.提供新的方法用于查找、判断和生成字符串
+        includes startsWith endsWith repeat(在自己看)
+    */
+   for(let codePoint of 'foo'){
+       console.log(codePoint);
+   }
+
+   let arr=["hello","world"];
+   for(let j of arr){
+       console.log(j);
+   }
+   
+   let str1="hello";
+   console.log(str1.repeat(3));
+   
+  
+   let reg1=/xyz/gi;
+   let reg2=new RegExp('xyz','gi');
+   let reg3=new RegExp(/xyz/gi);
+   let reg4=new RegExp(/xyz/,'gi');
+    /* 对RegExp的扩展
+        1.  .flags 过去正则对象的修饰符
+        2.  y修饰符 （y修饰符的作用与g修饰符类似，也是全局匹配，
+        后一次匹配都从上一次匹配成功的下一个位置开始。不同之处在于，
+        g修饰符只要剩余位置中存在匹配就可，而y修饰符确保匹配必须从
+        剩余的第一个位置开始，也就是说只有第一个位置匹配不成功就结束
+        但是g会接着向下一个位置匹配，直达结尾）
+    */
+   console.log(reg1.flags);
+
+   let str2="aaa_aa_aa_a";
+   var r1=/a+/g;
+   var r2=/a+/y;
+   console.log(r1.exec(str2));
+   console.log(r2.exec(str2));
+   console.log(r1.exec(str2));
+   console.log(r2.exec(str2));
+
+   /*对Number、Math的扩展
+    1.Number.isFinite() Number.isNaN
+     Number.parseInt()  Number.parseFloat()
+     Number.isInteger()
+    2.Math()/trunc()  Math.sign()
+   */
+</script>
+</html>

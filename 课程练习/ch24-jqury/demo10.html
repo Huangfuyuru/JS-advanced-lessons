@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <style>
+        div{
+            height: 400px;
+            width:400px;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+    <div>
+
+    </div>
+    <button id="slideUp">slideUp</button>
+    <button id="slideDown">slideDown</button>
+    <button id="fadeOut">fadeOut</button>
+    <button id="fadeIn">fadeIn</button>
+    <button id="animation">animation</button>
+</body>
+<script>
+    /*
+        slideUp(时间 毫秒) 通过改变元素的高度来切换显示隐藏
+        slideDown(时间)
+
+        fadeOut(时间 毫秒)    改变元素的透明度来切换显示隐藏
+        fadeIn()
+    */
+    $("#slideUp").click(function(){
+        $("div").slideUp(3000);
+      });
+    $("#slideDown").click(function(){
+        $("div").slideDown();
+    });
+    $("#fadeOut").click(function(){
+        $("div").fadeOut(1000);
+    });
+    $("#fadeIn").click(function(){
+        $("div").fadeIn(1000);
+    });
+    /*
+        动画执行顺序
+        同步执行
+    */
+    // $("#animation").click(function(){
+    //     $("div").animate({
+    //         "margin-left":"400px",
+    //         "margin-top":"200px"
+    //     },3000);
+    // });
+    // 顺序执行
+    $("#animation").click(function(){
+        $("div").animate({
+            "margin-left":"300px"
+        },1000).animate({
+            "margin-left":"100px"
+        },1000)
+    })
+</script>
+</html>

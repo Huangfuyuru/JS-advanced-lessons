@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+</head>
+<body>
+    <img src="./blackpink.jpg"/>
+    <span id="title"></span>
+    <button id="btn">ajax</button>
+</body>
+<script>
+    /*
+        ajax异步请求从后端获取数据，会局部刷新页面
+        XMLHTTpRequest js原生发起ajax请求的对象
+        jQuery ajax对XMLHttpRequest做了封装
+    */
+    $("#btn").click(function(){
+        $.ajax({
+        url:"./server.php",
+        type:"get",
+        success:function(data){
+        $("#title").html(data);
+        },
+        error:function(err){
+
+        }
+    })
+    console.log("你好");
+    })
+    
+</script>
+</html>

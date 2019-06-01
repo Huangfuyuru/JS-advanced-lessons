@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #div1{
+            width:300px;
+            height: 200px;
+            background: pink;
+        }
+        #div2{
+            width:60px;
+            height: 200px;
+            margin: 0 auto;
+            background: black;
+        }
+        #div3{
+            width: 30px;
+            height: 100px;
+            margin: 0 auto;
+            background-color: blueviolet;
+        }
+    </style>
+</head>
+<body>
+        <div id="div1">
+            <div id="div2">
+                <div id="div3">
+
+                </div>
+            </div>
+        </div>
+</body>
+<script>
+    /*
+        默认情况下，事件流是冒泡，从内往外
+        捕获是从外往内
+        addEventListener("事件名","回调函数","是否为捕获事件流")
+        默认情况是，fasle,从内往外
+
+        e.bubbles
+        只读，表名当前事件是否是冒泡
+
+        e.cancelable
+        只读，表明是否取消默认操作
+
+        e.cancelBubble
+        可读写，是否阻止冒泡过程，等效于stopPropagation()
+        
+    */
+    var div1=document.getElementById("div1");
+    div1.addEventListener("click",function(){
+        
+        console.log("div1");
+    })
+    /*
+        第三个参数表示是否是以捕获的形式的是触发
+    */
+    div2.addEventListener("click",function(e){
+        /*
+            e.target
+            是触发事件的源对象，即最内层的元素的DOM对象，与冒泡还是捕获无关
+        */
+        console.log(e.target);
+        /*
+            e.current
+            是触发事件的当前的事件对象
+        */
+        console.log(e.current);
+        console.log("div2");
+    })
+    div3.addEventListener("click",function(e){
+        /*
+            e.stopPropagation()
+            阻止事件的捕获、冒泡
+        */
+        e.stopPropagation();
+        console.log("div3");
+    })
+</script>
+</html>

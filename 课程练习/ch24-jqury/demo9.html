@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <style>
+        .imgborder{
+            border:3px solid paleturquoise;
+        }
+    </style>
+</head>
+<body>
+    <img src="img/jisoo.jpg" id="img">
+    <button id="attrbtn">attr</button>
+    <button id="btn">btn</button>
+    <button id="remove">remove</button>
+    <button id="addClass">addClass</button>
+</body>
+    <script>
+        /*
+            attr("属性名","属性值")   设置特定元素的属性
+            attr("属性名")            获取特定属性的属性值
+            removeAttr("属性名")       删除该属性
+
+            addClass("class的名称")     向选中的元素添加新的class
+        */
+
+        /*
+            总结
+            1.引入jQuery库
+            2.得到jQuery包装集   $("btn")
+                $("td:even")    索引值为偶数
+                $("td:odd")     索引值为奇数
+            3.事件
+                mouseover() mouseout() mousemove() click() blur() focus()
+            4.DOM 操作
+            $("html结构")
+            append() appendTo() before() insertBefore() after()
+            insertAfter() prepend() prependTo()
+
+            val()  html() attr() removeAttr() addClass() removeClass() css()
+
+        */
+    $("#attrbtn").click(function(){
+        $("#img").attr("src","img/Lisa.jpg");
+        alert($("#img").attr("src"));
+    })
+    $("#btn").click(function(){
+        $("#img").attr("title","这是jisoo");
+    })
+    $("#remove").click(function(){
+        $("#img").removeAttr("title");
+    })
+    // $("#img").mouseover(function(){
+    //     $(this).addClass("imgborder");
+    // })
+    $("#addClass").click(function(){
+        $("#img").addClass("imgborder");
+    })
+    </script>
+</html>
