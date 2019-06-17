@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /*
+        Promise将异步执行写成同步执行的方式
+        resolve()是异步操作成功时调用
+        reject()是异步操作失败调用
+    */
+    new Promise(function(resolve,reject){
+        setTimeout(() => {
+        console.log("world");
+        console.log(val);
+
+        }, 3000);
+    }).then(function(){
+        //对应resolve()
+        console.log("hello")
+    },function(){
+        //对应reject()
+    }).catch(function(e){
+        //catch捕获异常
+        console.log(e);
+    }).finally(function(){
+        console.log("finally执行结束")
+    })
+    //done()终结
+    //finaly都会执行
+
+    var myLove=["lisa","jisoo","rose","jennie"];
+myLove.reverse();
+console.log(myLove)
+
+function compareNumber(a,b){
+    if(a>b){
+
+    }
+};
+var  arr=[2,3,4,1,3,5];
+console.log(arr.sort(compareNumber));
+</script>
+</html>

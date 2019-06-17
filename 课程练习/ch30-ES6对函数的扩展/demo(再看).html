@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /*
+        箭头函数（在看一下）
+        格式  参数=>函数体  或  (函数)=>{函数体}
+        [复合语句需要用大括号和对应的return语句进行返回，单语句可以不用return关键字]
+
+        存在函数嵌套，this指向不正确时，解决方法
+        1.通过that转存
+        2.bind硬绑定
+        3.apply call
+        4.箭头函数
+    */
+    var f=function(v){
+        return v+1
+    }
+    f(2);
+    //相当于
+    var f=v=>v+1;
+    f(2);
+
+    var f1=function(){
+        return 5;
+    }
+    //相当于
+    var f1=()=>5;//没有参数或有多个参数的情况下，需要用小括号来表示参数
+    //如果有多条语句则需要有大括号表示{函数体}
+    f1();
+
+    var foo=function(num1,num2){
+        if(num1>num2){
+            return num1*2;
+        }else{
+            return num2*2;
+        }
+    }
+    foo(3,4);
+    //相当于
+    var foo=(num1,num2)=>{
+        if(num1>num2){
+            return num1*2;
+        }else{
+            return num2*2;
+        }
+    }
+    foo(3,4);
+
+    var max=(a,b)=>a>b?a:b;
+    console.log(max(1,2));
+    /*  函数内的 this是与函数定义时所在的对象绑定，
+        而不是使用时所在的对象（避免this缺陷）
+        大括号被解释为代码块，所以如果箭头函数直接返回一个对象，
+        需在对象外面加上括号
+
+    */
+    // 箭头函数有几个使用注意点。
+    // （1）函数体内的this对象，就是定义时所在的对象，而不是使用时所在的对象。
+    // （2）不可以当作构造函数，也就是说，不可以使用new命令，否则会抛出一个错误。
+    // （3）不可以使用arguments对象，该对象在函数体内不存在。如果要用，可以用Rest参数代替。
+    // （4）不可以使用yield命令，因此箭头函数不能用作Generator函数
+    var obj={
+        objName:"obj",
+        showName:function(){
+            setTimeout(function(){
+                console.log(this.objName);
+            }.bind(this),3000);
+        }
+    }
+    var obj1={
+        objName:"obj1",
+        showName:function(){
+            setTimeout(()=>{
+                console.log(this.objName)
+            },3000)
+        }
+    }
+    
+
+    var point={
+        x:0,
+        y:0,
+        moveTo:function(x,y){
+            var moveToX=()=>this.x=x+1;
+            var moveToY=()=>this.y=y;
+            moveToX();
+            moveToY();
+            console.log(this.x,this.y);
+            
+        }
+    };
+    console.log(point.moveTo(2,4));
+    console.log(point);
+
+    //箭头函数没有自己的this,而是引用外层的this
+    function foo(){
+        return ()=>{
+            return ()=>{
+                console.log(this.id);
+            }
+        }
+    }
+    var f=foo.call({id:21});
+    f()();
+
+    //如果箭头函数直接返回一个对象，必须在对象的外面加上小括号
+    var getTemp=itemId=>({id:itemId,name:"t"});
+    getTemp("xix")
+    var getTemp=function(itemId){
+        return {id:itemID,name:"t"};
+    }
+    
+  
+    
+</script>
+</html>

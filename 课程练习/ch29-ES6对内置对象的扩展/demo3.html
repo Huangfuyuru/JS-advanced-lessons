@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /*可以直接写变量,然后添加到对象中
+     可以不写function,直接定义函数
+    */
+    var username="lily";
+    var person={
+        username,
+        show(){
+            console.log(this.username);
+        }
+    }
+    console.log(person.show());
+
+    let bar="foo";
+    let bar1="foo";
+    let obj={
+        bar:"obj1",
+        [bar1]:"obj1"
+    }
+    console.log(obj.bar);
+    console.log(obj.foo);//因为定义是[bar1] 所以是变量foo
+
+    /*
+        新增的方法
+        1.Object.is(value1, value2); 判断两个值是否是相同的值
+        2.Object.assign( ) 用于将所有可枚举属性的值从一个或多个源对象复制到目标对象。它将返回目标对象.合并后的对象会有target、source上的属性
+            但是如果source上的属性和target的属性相同，那么source上的该属性会覆盖target上该属性的值
+        3.Object.setPrototypeOf( ) 设置一个指定的对象的原型 ( 即, 内部[[Prototype]]属性）到另一个对象或  null
+        4.Object.getPrototypeOf( ) 返回指定对象的原型（内部[[Prototype]]属性的值）
+        5.Object.values( )  只会得到属性值
+        6.Object.entries( ) 属性名 属性值都会得到
+    */
+    let target={a1:1,b:2};
+    let source={a:3,b:4};
+    let returnd=Object.assign(target,source);
+    console.log(returnd);
+    console.log(target);
+
+    let obj1={
+        username:'张三',
+        age:15,
+        sex:'男'
+    }
+    let values=Object.values(obj1);
+    for(let i of values){
+        console.log(i);
+    }
+    let values2=Object.entries(obj1);
+    for(let j of values2){
+        console.log(j);
+    }
+
+    var obj=Object.create({x:1,y:2});
+    console.log(obj.getPrototypeOf(obj));
+    Object.setPrototypeOf(obj,{z:1});
+    console.log(obj.getPrototypeOf(obj));
+
+    var obj={foo:"bar",baz:"22"};
+    Object.values(obj);//["bar","22"]
+    
+</script>
+</html>

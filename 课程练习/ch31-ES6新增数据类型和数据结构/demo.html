@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /*
+        Symbos是基本数据类型，不能用new
+        Symbol方法生成一个Symbol的变量并且具有唯一性
+        不可转换为其他数据类型，可以转换为字符串
+    */
+    var obj={
+        x:1,
+        y:2,
+        moveTo:function(x,y){
+            this.x=x;
+            this.y=y;
+        }
+    }
+    obj.moveTo=function(x,y){
+        console.log("这个方法被覆盖了");
+    }
+    obj.moveTo(1,2);
+
+    let s=Symbol();
+    typeof s;
+
+    //Symbol函数可以接受一个字符串作为参数，表示对Symbol实例的描述，主要是为了在控制台显示
+    //或者转为字符串时，比较容易区分
+    var s1=Symbol("foo");
+    var s2=Symbol("bar");
+    console.log(s1);
+    console.log(s2);
+    console.log(s1.toString());
+    console.log(s2.toString());
+
+    //Symbol函数的参数只是表示对当前的Symbol值的描述，因此相同参数的Symbol函数的返回值是不同的
+    var s1=Symbol();
+    var s2=Symbol();
+    console.log(s1===s2);//false
+    //如果Symbol 的参数是一个对象，就会调用该对象的toString 方法，
+    //将其转为字符串，然后才生成一个Symbol值
+    const obj1={
+        toString(){
+            return 'abc'
+        }
+    }
+    const sym=Symbol(obj1);
+    sym;
+</script>
+</html>

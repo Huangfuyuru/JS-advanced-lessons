@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /*
+        ... 剩余操作符
+        用在函数参数的声明中，可获得隐含的实参，取代ES5中函数隐藏变量arguments
+        因为arguments是类数组对象，但是...不能想操作数组那样操作  
+    */
+    function fn1(x,...y){
+        console.log(x,y);
+    }
+    fn1(1,2,3,4,5);
+
+    function add(...values){
+        let sum=0;
+        for(var val of values){
+            sum+=val;
+        }
+        return sum;
+    }
+    console.log(add(2,5,3));
+    
+    /*
+        pread操作符
+
+    */
+    function fn2(){
+        console.log(arguments)
+    }
+    fn2(1,...[1,2,3,4]);
+</script>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //作为属性名的Symbol
+    //使用Symbol是[],而不是.
+    //第一种
+    var mySymbol=Symbol();
+    var a={};
+    a[mySymbol]='Hello';//mySymbol就作为了a的一个属性名
+
+    //第二种
+    var mySymbol=Symbol();
+    var a={
+        [mySymbol]:'Hello'
+    };
+
+    //第三种
+    var mySymbol=mySymbol();
+    var a={};
+    Object.defineProperty(a,mySymbol,{value:'Hello'});
+
+    //Symbol值 作为对象属性名时，不能用点运算符，使用中括号。同时注意使用引号和不用引号的区别
+    var mySymbol=Symbol();
+    var a={};
+    a.mySymbol='Hello';//点运算符后面跟着是一个字符串，但是Symbol也是一个基本数据类型
+    //所以这个时候把他当字符串了
+    a[mySymbol];//undefined
+    a['mySymbol'];//所以只有给他加'',才能调用
+
+
+    var myS1=Symbol('xx');
+    var myS2='xx';
+    var obj={
+        [myS1]:123,//属性名是myS1
+        [myS2]:456//属性名时xx
+    };
+    console.log(obj[myS1],obj[Symbol("xx")]);
+    console.log(obj[myS2],obj["xx"]);
+    console.log(obj["myS1"]);
+    console.log(obj["myS2"]);
+</script>
+</html>

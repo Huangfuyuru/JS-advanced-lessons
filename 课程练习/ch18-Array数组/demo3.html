@@ -48,6 +48,20 @@
         return a-b;
     });
     console.log(arr1);
+
+    var myLove=["lisa","jisoo","rose","rose"];
+    console.log(myLove.unshift("blackpink","good"));
+    console.log(myLove)
+
+    var myLove=["lisa","jisoo","rose","jennie"];
+    var myLove1=myLove.splice(0,0,"black")
+    console.log(myLove) 
+    console.log(myLove1) 
+
+    var myLove=["lisa","jisoo","rose","jennie"];
+var myLove1=myLove.splice(0,1,"black","pink");
+console.log(myLove) //["black“,"pink","jisoo","rose","jennie"]
+console.log(myLove1) //["lisa"]
     </script>
 </body>
 </html>

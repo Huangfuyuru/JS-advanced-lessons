@@ -24,16 +24,18 @@
        console.log(j);
    }
    
-   let str1="hello";
-   console.log(str1.repeat(3));
-   
+   var str1="hello";
+   console.log(str1.repeat(3));//返回一个新的字符串
+   console.log(str1.startsWith("he"));
+   console.log(str1.endsWith("o"));
+   console.log(str1.includes("ll"));
   
    let reg1=/xyz/gi;
    let reg2=new RegExp('xyz','gi');
    let reg3=new RegExp(/xyz/gi);
    let reg4=new RegExp(/xyz/,'gi');
     /* 对RegExp的扩展
-        1.  .flags 过去正则对象的修饰符
+        1.  .flags 获取正则对象的修饰符
         2.  y修饰符 （y修饰符的作用与g修饰符类似，也是全局匹配，
         后一次匹配都从上一次匹配成功的下一个位置开始。不同之处在于，
         g修饰符只要剩余位置中存在匹配就可，而y修饰符确保匹配必须从
@@ -54,7 +56,10 @@
     1.Number.isFinite() Number.isNaN
      Number.parseInt()  Number.parseFloat()
      Number.isInteger()
-    2.Math()/trunc()  Math.sign()
+    2.Math.trunc() 方法会将数字的小数部分去掉，只保留整数部分
+      Math.sign() 函数返回一个数字的符号, 指示数字是正数，负数还是零
    */
+    console.log(Math.trunc(2,44));
+    console.log(Math.sign(-3.5));
 </script>
 </html>

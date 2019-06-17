@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /*
+    
+    生成一个遍历器对象*/
+    function* helloG(){
+        yield "hello";
+        yield "world";
+        return "ending";
+    }
+    let iter=helloG();
+    iter.next();
+
+    let myiter={};
+    myiter[Symbol.iterator]=function* (){
+        yield {name:"zhan"};
+        yield {age:20};
+        return ;
+    }
+    console.log([...myiter]);//有遍历器接口的可以使用扩展运算符
+    for(let i of myiter){
+        console.log(i);
+    }
+</script>
+</html>

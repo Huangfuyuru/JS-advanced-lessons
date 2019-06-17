@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //在ES5中不能直接为函数的参数指定默认值，需要通过||来实现
+    /*对函数参数默认值的扩展
+        1、带默认值的参数变量是默认声明的，所以函数体内不能再用let或const重复声明
+        2、 参数一般有顺序，有默认值的参数应该是尾参数，这样可以使有默认值的用默认值 没有默认值的用传递的值
+    */
+
+    function fn1(x,y=2,z=3){
+        return x+y+z;
+    }
+    console.log(fn1(1));
+    console.log(fn1(1,4));
+    console.log(fn1(1,4,6));
+
+    function fetch(url,body="xx",method="s",headers="s"){
+        console.log(url);
+        console.log(body);
+        console.log(method);
+        console.log(headers);
+    }
+    fetch('xx');
+</script>
+</html>

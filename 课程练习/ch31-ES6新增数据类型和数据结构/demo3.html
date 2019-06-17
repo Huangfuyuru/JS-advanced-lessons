@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    //新的数据结构Set
+    //
+</body>
+<script>
+    //新的数据结构Set
+    //类似于数组，但是成员的值都是唯一的，没有重复的值
+    //用Set构造函数来生成Set对象，用法类似实例化数组对象，通过new实例化Set对象
+    //通过add方法向Set结构加入成员，Set结构不会添加重复的值
+    var s1=new Set([1,2,3,4,5,5,5,6,6,7,1]);
+    console.log(s1);//1234567
+    console.log(s1.size);
+    s1.add(9);
+    console.log(s1);
+    console.log(s1.has(4));
+    s1.delete(4);
+    console.log(s1.has(4));
+
+
+    var pro=new Set();
+    pro.add('jisoo');
+    pro.add('lisa');
+    console.log(pro.size);
+
+    //遍历
+    var set=new Set(['red', 'green', 'blue']);
+    for(var item of set.keys()){
+        console.log(item);
+    }
+    for(var item of set.values()){
+        console.log(item);
+    }
+    for(var item of set.entries()){
+        console.log(item);
+    }
+</script>
+</html>

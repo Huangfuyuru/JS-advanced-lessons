@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /*  静态方法
+        Array.from() 将类数组转化成数组
+                    类数组(会有length属性，但是不是一个数组)：字符串、arguments、对象
+        Array.of(a,b,c) 将(a,b,c)整合成一个数组
+    */
+    console.log(Array.from("abcd"));
+    var arrayLike={
+        '0':'a',
+        '1':'b',
+        '2':'c',
+    }
+    console.log(Array.from(arrayLike));
+    let arr2=Array.from(arrayLike);
+    console.log(arr2);
+    function fn1(){
+        var arr=Array.from(arguments);
+        console.log(arr);
+    };  
+    fn1(1,2,3);
+
+    console.log(Array.of(1,2,3));
+    /*  动态方法(定义在prototype)：是他的实例化对象来使用这个方法
+        1.Array.prototype.copyWithin(a,b,c) 方法浅复制数组的一部分到同一数组中的另一个位置，并返回它，不会改变原数组的长度。
+        a 目标位置  b 要复制的起始位置 c 要复制的结束位置
+        2.Array.prototype.find(function()) 方法返回数组中满足提供的测试函数的第一个元素的值。否则返回 undefined。
+        3.Array.prototype.findIndex(function())  方法返回数组中满足提供的测试函数的第一个元素的索引值。否则返回 undefined。
+        4.Array.prototype.fill(value,填充的起始位置，填充的结束位置) 
+        5.Array.prototype.keys( )返回一个包含数组中每个索引键的Array Iterator对象(读取可以使用 for of 进行遍历)
+        6.Array.prototype.values( ) 获取数组的元素值(读取可以使用 for of 进行遍历)
+        7.Array.prototype.includes( ) 用来判断一个数组是否包含一个指定的值，根据情况，如果包含则返回 true，否则返回false。
+    */
+    let arr1=[0,1,2,3,4,5];
+    console.log(arr1.copyWithin(0,3,5));//第一个位置 目标位置  第二个位置要复制的起始位置 第三个位子要复制的结束位置
+
+    let arr2=[10,20,30,40,50];
+    let e1=arr2.find(function(element){
+        return element>19;
+    });
+    console.log(e1);
+
+    let e2=arr2.findIndex(function(element){
+        return element>19;
+    });
+    console.log(e2);
+
+    let arr3=[1,2,3,4];
+    let e3=arr3.fill('6,7,8',0,3);
+    console.log(e3);
+
+    let e4=arr3.keys();
+    for (let key of e4) {
+        console.log(key); // expected output: 0 1 2
+        }
+
+    console.log(arr3.includes(4));
+</script>
+</html>
